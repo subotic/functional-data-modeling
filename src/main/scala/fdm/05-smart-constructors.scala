@@ -21,6 +21,11 @@ object smart_constructors {
    */
   sealed abstract case class NonNegative private (value: Int)
 
+  object NonNegative {
+    def fromInt(value: Int): Option[NonNegative] =
+      if (value >= 0) Some(new NonNegative(value) {}) else None
+  }
+
   /**
    * EXERCISE 2
    *
